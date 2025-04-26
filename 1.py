@@ -4,20 +4,30 @@ import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
-# Функція Денисенка Дениса для початку програми
-def func1():
+# Функція для відкриття файлів
+def Open(file_name, mode):
     try:
-        # Введення даних
-        pryzvishe = input("Введіть прізвище: ")
-        pytanya = input("Введіть питання: ")
+        file = open(file_name, mode, encoding='utf-8')
+    except:
+        print(f"Файл {file_name} не вдалося відкрити")
+        return None
+    else:
+        print(f"Файл {file_name} успішно відкрито")
+        return file
 
-        # Відкриваємо файл з перезаписом всієї інформації
-        with open("file.txt", "w", encoding="utf-8") as file:
-            file.write(f"{pryzvishe}\n")
-            file.write(f"{pytanya}\n\n")
-        print("Файл успішно перезаписано")
-    except IOError:
-        print("Помилка: файлу file.txt не існує")
+filename = "file.txt"
 
-# Виклик функції Денисенка Дениса
-func1()
+# Код Денисенка Дениса
+file1 = Open(filename, "w")
+
+if file1:
+    # Введення даних
+    pryzvishe = input("Введіть прізвище: ")
+    pytanya = input("Введіть питання: ")
+
+    # Запис даних
+    file1.write(f"{pryzvishe}\n")
+    file1.write(f"{pytanya}\n\n")
+
+    print("Текстовий файл успішно змінено")
+    file1.close()
