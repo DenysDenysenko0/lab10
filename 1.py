@@ -48,3 +48,19 @@ if file1:
 
     print("Текстовий файл успішно змінено")
     file1.close()
+
+# Код Бобирєвой Тетяни
+file1 = Open(filename, "a")
+if file1:
+    # Введення даних
+    pryzvishe = input("Введіть прізвище (№3): ")
+    vidpovid = input("Відповідь на питання: ")
+    pytanya = input("Моє питання: ")
+
+    # Запис даних
+    file1.write(f"{pryzvishe}\n")
+    file1.write(f"{vidpovid}\n")
+    file1.write(f"{pytanya}\n\n")
+
+    print("Текстовий файл успішно змінено")
+    file1.close()
